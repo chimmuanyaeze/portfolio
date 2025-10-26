@@ -1,0 +1,105 @@
+ :root {
+     --bg: #ffffff;
+     /* page background */
+     --card: #f6f6f6;
+     /* container background */
+     --muted: #bdbdbd;
+     /* unfilled bar color */
+     --fill: #3a3a3a;
+     /* fill color (dark gray) */
+     --text: #111111;
+     /* main text */
+     --accent: #2e2e2e;
+     /* headings */
+ }
+
+ /* container */
+ #skills {
+     background: var(--bg);
+        position:sticky;
+        margin-top: 0;
+
+ }
+
+ .skills-wrap {
+     max-width: 900px;
+     margin: 48px auto;
+     padding: 28px;
+     background: var(--card);
+     border-radius: 10px;
+     box-shadow: 0 6px 18px rgba(30, 30, 30, 0.06);
+     font-family: Georgia, 'Times New Roman', serif;
+     /* classic look */
+     color: var(--text);
+ }
+
+ .skills-wrap h2 {
+     margin: 0 0 26px;
+     font-size: 28px;
+     letter-spacing: 0.6px;
+     color: var(--accent);
+     border-left: 2px solid var(--muted);
+     padding-left: 12px;
+ }
+
+ .skill {
+     margin-bottom: 22px;
+ }
+
+ .skill-head {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     margin-bottom: 8px;
+ }
+
+ .skill-name {
+     font-weight: 700;
+     font-size: 16px;
+ }
+
+ .skill-value {
+     font-size: 14px;
+     color: var(--muted);
+ }
+
+ /* progress bar shell */
+ .progress-bar {
+     width: 100%;
+     height: 22px;
+     background: var(--muted);
+     border-radius: 999px;
+     overflow: hidden;
+     position: relative;
+ }
+
+ /* the animated fill */
+ .progress {
+     width: 0%;
+     /* start collapsed */
+     height: 100%;
+     background: linear-gradient(90deg, rgba(58, 58, 58, 1), rgba(34, 34, 34, 1));
+     border-radius: 999px;
+     display: flex;
+     align-items: center;
+     justify-content: flex-end;
+     padding-right: 10px;
+     box-sizing: border-box;
+     transition: width 1.4s cubic-bezier(.22, .9, .32, 1);
+     color: #fff;
+     font-weight: 600;
+     font-size: 13px;
+ }
+
+ /* percentage inside the fill - hidden until there's space */
+ .progress-text {
+     display: inline-block;
+     transform: translateX(4px);
+     white-space: nowrap;
+ }
+
+ /* if bar is too small to show text, make the text visible outside using pseudo rule */
+ /* We will also add a small fallback: when width < 18% the text will overflow visibly */
+ .progress[style*="width: 0%"] .progress-text {
+     opacity: 0;
+ }
